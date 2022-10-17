@@ -1,0 +1,45 @@
+{% extends "main.html" %}
+
+{% block main %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Here are Logs In Database</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Sepal length</th>
+                                    <th scope="col">Sepal width</th>
+                                    <th scope="col">Petal length</th>
+                                    <th scope="col">Petal width</th>
+                                    <th scope="col">Classification</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for log in logs %}
+                                    <tr>
+                                        <th scope="row">{{ log.id }}</th>
+                                        <td>{{ log.sepal_length }}</td>
+                                        <td>{{ log.sepal_width }}</td>
+                                        <td>{{ log.petal_length }}</td>
+                                        <td>{{ log.petal_width }}</td>
+                                        <td>{{ log.prediction }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+{% endblock %}
